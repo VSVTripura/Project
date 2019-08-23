@@ -28,6 +28,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
        
         AF.request("http://localhost:8080/regPage?name=\(name)&email=\(email)&password=\(password)&contact=\(contact)").validate()
         
+        UserDefaults.standard.set(email, forKey: "email")
         self.Textfield1.text = ""
         self.Textfield2.text = ""
         self.Textfield3.text = ""

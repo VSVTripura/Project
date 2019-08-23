@@ -40,7 +40,9 @@ class EditProfile: UIViewController {
         let password = self.passwordtext.text!
         let email = self.emailtext.text!
         let contactnumber = self.contacttext.text!
-        AF.request("http://localhost:8080/viewprofile?name=\(username)&password=\(password)&email=\(email)&contact=\(contactnumber)").responseJSON{(responseData) -> Void in
+       
+        var emailId=UserDefaults.standard.object(forKey: "email")!
+AF.request("http://localhost:8080/viewprofile?email=\(emailId)").responseJSON{(responseData) -> Void in
             
             
             print(JSON(responseData.data))

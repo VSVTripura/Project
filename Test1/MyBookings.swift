@@ -15,7 +15,10 @@ class MyBookings: UITableViewController {
     
     @IBOutlet var Tableview: UITableView!
     var arrRes = [[String : AnyObject]]()
-    let findAllString = "http://localhost:8080/previousbookings"
+    var email=UserDefaults.standard.object(forKey: "email")!
+    
+    
+    
            
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,8 @@ class MyBookings: UITableViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+        print(email)
+        let findAllString = "http://localhost:8080/previousbookings?email=\(email)"
         loadData(urlToFetch : findAllString)
         
         self.tableView.tableFooterView = UIView()

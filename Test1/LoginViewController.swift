@@ -47,6 +47,8 @@ class LoginViewController: UIViewController {
                     //self.present(alertController,animated: true,completion: nil)
                 }
                 else{
+                    
+                    UserDefaults.standard.set(email, forKey: "email")
                     self.performSegue(withIdentifier: "loginv", sender: nil)
                     
                 }
